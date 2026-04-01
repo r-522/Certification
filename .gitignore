@@ -1,0 +1,29 @@
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Node
+node_modules/
+dist/
+frontend/.env
+frontend/.env.local
+
+# 環境変数（シークレット）
+.env
+.env.local
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# プロジェクト固有
+PROMPT.txt
+.prompt.txt
+.claude/.gitignore

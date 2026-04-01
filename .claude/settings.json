@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny":[
+      "npm install*",
+      "npm i *",
+      "yarn add*",
+      "pip install*"
+    ]
+  }
+}

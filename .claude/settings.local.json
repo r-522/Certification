@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:/Users/ikere/OneDrive/デスクトップ/プログラミング/shikaku/api\")",
+      "Bash(mkdir -p \"C:/Users/ikere/OneDrive/デスクトップ/プログラミング/shikaku/src/models\")",
+      "Bash(mkdir -p \"C:/Users/ikere/OneDrive/デスクトップ/プログラミング/shikaku/src/handlers\")",
+      "Bash(mkdir -p \"C:/Users/ikere/OneDrive/デスクトップ/プログラミング/shikaku/src/middleware\")",
+      "Bash(mkdir -p \"C:/Users/ikere/OneDrive/デスクトップ/プログラミング/shikaku/src/utils\")"
+    ]
+  }
+}

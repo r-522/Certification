@@ -1,0 +1,257 @@
+/* =====================================================
+   Design tokens
+   色は役割で定義する: ブランド色・操作色・状態色・注意色
+   ===================================================== */
+:root {
+  /* ブランド色 */
+  --c-brand:        #0f172a; /* slate-900 — ヘッダー・ブランド識別 */
+  --c-brand-light:  #1e293b; /* slate-800 */
+
+  /* 操作色（クリックできる・変更できる） */
+  --c-action:       #0369a1; /* sky-700 */
+  --c-action-hover: #0284c7; /* sky-600 */
+  --c-action-light: #e0f2fe; /* sky-100 */
+
+  /* 状態色: 達成・保有 */
+  --c-success:      #16a34a; /* green-600 */
+  --c-success-bg:   #dcfce7; /* green-100 */
+
+  /* 注意色: 締め切り・注意 */
+  --c-warn:         #d97706; /* amber-600 */
+  --c-warn-bg:      #fef3c7; /* amber-100 */
+
+  /* 危険色: 削除・キャンセル */
+  --c-danger:       #dc2626; /* red-600 */
+  --c-danger-hover: #b91c1c; /* red-700 */
+  --c-danger-bg:    #fee2e2; /* red-100 */
+
+  /* テキスト */
+  --c-text-primary:   #1e293b; /* slate-800 */
+  --c-text-secondary: #64748b; /* slate-500 */
+  --c-text-muted:     #94a3b8; /* slate-400 */
+
+  /* サーフェス */
+  --c-bg:      #f8fafc; /* slate-50 */
+  --c-surface: #ffffff;
+  --c-border:  #e2e8f0; /* slate-200 */
+  --c-border-focus: #0369a1;
+
+  /* スペーシング */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* シャドウ */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* =====================================================
+   Reset & Base
+   ===================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--c-bg);
+  color: var(--c-text-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: var(--c-action); text-decoration: none; }
+a:hover { color: var(--c-action-hover); }
+
+/* =====================================================
+   Layout
+   ===================================================== */
+.app-root { min-height: 100vh; display: flex; flex-direction: column; }
+
+.main-content {
+  flex: 1;
+  padding: 32px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  width: 100%;
+}
+.main-content.with-nav { padding-top: 24px; }
+
+/* =====================================================
+   Typography
+   ===================================================== */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-brand);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.section-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--c-text-primary);
+  margin-bottom: 12px;
+}
+
+/* =====================================================
+   Cards
+   ===================================================== */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+}
+
+/* =====================================================
+   Forms
+   ===================================================== */
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--c-text-secondary);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--c-text-primary);
+  background: var(--c-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--c-border-focus);
+  box-shadow: 0 0 0 3px rgba(3,105,161,0.12);
+}
+.form-textarea { resize: vertical; min-height: 72px; }
+
+/* =====================================================
+   Buttons
+   ===================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s, opacity 0.15s;
+  line-height: 1;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--c-action);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) { background: var(--c-action-hover); }
+
+.btn-secondary {
+  background: var(--c-surface);
+  border-color: var(--c-border);
+  color: var(--c-text-primary);
+}
+.btn-secondary:hover:not(:disabled) { background: var(--c-bg); }
+
+.btn-danger {
+  background: var(--c-surface);
+  border-color: var(--c-border);
+  color: var(--c-danger);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--c-danger-bg);
+  border-color: var(--c-danger);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--c-text-secondary);
+}
+.btn-ghost:hover:not(:disabled) { background: var(--c-bg); color: var(--c-text-primary); }
+
+.btn-sm { padding: 6px 12px; font-size: 0.8125rem; }
+.btn-icon { padding: 8px; }
+
+/* =====================================================
+   Badges
+   ===================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.badge-success { background: var(--c-success-bg); color: var(--c-success); }
+.badge-warn    { background: var(--c-warn-bg);    color: var(--c-warn); }
+.badge-danger  { background: var(--c-danger-bg);  color: var(--c-danger); }
+.badge-neutral { background: var(--c-bg); color: var(--c-text-secondary); border: 1px solid var(--c-border); }
+.badge-action  { background: var(--c-action-light); color: var(--c-action); }
+
+/* =====================================================
+   Alerts
+   ===================================================== */
+.alert {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+}
+.alert-error {
+  background: var(--c-danger-bg);
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+.alert-success {
+  background: var(--c-success-bg);
+  border-color: #86efac;
+  color: #166534;
+}
+
+/* =====================================================
+   Empty state
+   ===================================================== */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--c-text-muted);
+}
+.empty-state p { font-size: 0.9375rem; }
+
+/* =====================================================
+   Divider
+   ===================================================== */
+.divider {
+  height: 1px;
+  background: var(--c-border);
+  margin: 20px 0;
+}
+
+/* =====================================================
+   Responsive
+   ===================================================== */
+@media (max-width: 640px) {
+  .main-content { padding: 16px; }
+  .page-title   { font-size: 1.25rem; }
+}
